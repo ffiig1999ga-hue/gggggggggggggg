@@ -219,7 +219,7 @@ export const Footer: React.FC<FooterProps> = ({ isDarkMode = false }) => {
             </p>
             <div className="flex items-center justify-center gap-2 text-purple-300">
               <Heart className="w-4 h-4 animate-pulse" />
-              <span className="text-sm">تم التطوير بحب وإخلاص لخدمة كتاب الله</span>
+              <span className="text-sm">Created by Ahmed Tareq - تم التطوير بحب وإخلاص لخدمة كتاب الله</span>
               <Heart className="w-4 h-4 animate-pulse" />
             </div>
           </div>

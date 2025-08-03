@@ -22,8 +22,8 @@ export const ExamSchedule: React.FC<ExamScheduleProps> = ({ isDarkMode = false }
   // حساب التواريخ بناءً على الجمعة القادمة
   const getNextFriday = () => {
     const today = new Date();
-    // Set to a specific date in 2025 for the competition
-    const nextFriday = new Date('2025-02-14'); // Friday, February 14, 2025
+    // تحديد تاريخ الجمعة الأولى للمسابقة
+    const nextFriday = new Date('2025-02-14T13:30:00'); // Friday, February 14, 2025 after Jumu'ah prayer
     return nextFriday;
   };
 
@@ -69,7 +69,7 @@ export const ExamSchedule: React.FC<ExamScheduleProps> = ({ isDarkMode = false }
     },
     {
       id: 2,
-      date: new Date(nextFriday.getTime() + 24 * 60 * 60 * 1000),
+      date: new Date('2025-02-15T12:00:00'), // Saturday, 12:00 PM
       day: 'السبت',
       title: 'اختبار الجزء الخامس والثامن',
       description: 'اختبارات حفظ للجزء الخامس والجزء الثامن من القرآن الكريم',
@@ -79,7 +79,7 @@ export const ExamSchedule: React.FC<ExamScheduleProps> = ({ isDarkMode = false }
     },
     {
       id: 3,
-      date: new Date(nextFriday.getTime() + 7 * 24 * 60 * 60 * 1000),
+      date: new Date('2025-02-21T13:30:00'), // Friday after Jumu'ah prayer
       day: 'الجمعة',
       title: 'اختبار الأجزاء المتقدمة',
       description: 'اختبارات للجزء العاشر والخامس عشر والعشرون',
@@ -89,7 +89,7 @@ export const ExamSchedule: React.FC<ExamScheduleProps> = ({ isDarkMode = false }
     },
     {
       id: 4,
-      date: new Date(nextFriday.getTime() + 8 * 24 * 60 * 60 * 1000),
+      date: new Date('2025-02-22T12:00:00'), // Saturday, 12:00 PM
       day: 'السبت',
       title: 'اختبار الأجزاء الأخيرة',
       description: 'اختبارات للجزء الخامس والعشرون والجزء الثلاثون',
@@ -292,20 +292,20 @@ export const ExamSchedule: React.FC<ExamScheduleProps> = ({ isDarkMode = false }
                           }`}>
                             <div 
                               className={`h-full transition-all duration-1000 ${
-                                timeLeft[event.id].includes('ثانية') && !timeString.includes('دقيقة') 
+                                timeLeft[event.id].includes('ثانية') && !timeLeft[event.id].includes('دقيقة') 
                                   ? 'bg-gradient-to-r from-red-500 to-red-600 animate-pulse' 
-                                  : timeLeft[event.id].includes('دقيقة') && !timeString.includes('ساعة')
+                                  : timeLeft[event.id].includes('دقيقة') && !timeLeft[event.id].includes('ساعة')
                                   ? 'bg-gradient-to-r from-orange-500 to-red-500'
-                                  : timeLeft[event.id].includes('ساعة') && !timeString.includes('يوم')
+                                  : timeLeft[event.id].includes('ساعة') && !timeLeft[event.id].includes('يوم')
                                   ? 'bg-gradient-to-r from-yellow-500 to-orange-500'
                                   : 'bg-gradient-to-r from-green-500 to-blue-500'
                               }`}
                               style={{ 
-                                width: timeLeft[event.id].includes('ثانية') && !timeString.includes('دقيقة') 
+                                width: timeLeft[event.id].includes('ثانية') && !timeLeft[event.id].includes('دقيقة') 
                                   ? '10%' 
-                                  : timeLeft[event.id].includes('دقيقة') && !timeString.includes('ساعة')
+                                  : timeLeft[event.id].includes('دقيقة') && !timeLeft[event.id].includes('ساعة')
                                   ? '25%'
-                                  : timeLeft[event.id].includes('ساعة') && !timeString.includes('يوم')
+                                  : timeLeft[event.id].includes('ساعة') && !timeLeft[event.id].includes('يوم')
                                   ? '50%'
                                   : '100%'
                               }}

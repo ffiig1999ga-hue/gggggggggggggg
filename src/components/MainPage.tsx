@@ -252,6 +252,17 @@ export const MainPage: React.FC<MainPageProps> = ({ onNavigate, isDarkMode = fal
               <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
+          
+          <button
+            onClick={() => onNavigate("donation")}
+            className="group bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+          >
+            <div className="flex items-center justify-center gap-3">
+              <Heart className="w-6 h-6 group-hover:animate-bounce" />
+              <span>التبرعات</span>
+              <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
         </div>
 
         {/* Footer message */}
@@ -382,6 +393,7 @@ export const MainPage: React.FC<MainPageProps> = ({ onNavigate, isDarkMode = fal
               </div>
 
               <div className="space-y-4">
+
                 {/* احمد طارق علي الدين */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-4">
@@ -403,7 +415,6 @@ export const MainPage: React.FC<MainPageProps> = ({ onNavigate, isDarkMode = fal
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -440,15 +451,7 @@ export const MainPage: React.FC<MainPageProps> = ({ onNavigate, isDarkMode = fal
                 >
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
-                <span className="text-sm font-medium">Created by</span>
-                <a
-                  href="https://www.facebook.com/palestine7102023y/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-yellow-300 hover:text-white transition-colors hover:underline glowing-text text-lg"
-                >
-                  Ahmed Tareq
-                </a>
+                <span className="text-sm font-medium">Created by Ahmed Tareq</span>
               </div>
             </div>
           </div>

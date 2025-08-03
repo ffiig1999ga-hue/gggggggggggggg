@@ -11,6 +11,7 @@ import { ResultCard } from './components/ResultCard';
 import { StatsSection } from './components/StatsSection';
 import { AllResultsSection } from './components/AllResultsSection';
 import { Footer } from './components/Footer';
+import { FloatingDonationButton } from './components/FloatingDonationButton';
 import { Clock, AlertCircle, BookOpen } from 'lucide-react';
 import { rankedStudents } from './data/students';
 import { calculateStats } from './utils/contestStats';
@@ -70,6 +71,11 @@ function App() {
     <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`} dir="rtl">
       {/* Global audio reference for main page */}
       <audio ref={audioRef} style={{ display: 'none' }} />
+      
+      {/* Floating Donation Button - Show on all pages except main and donation */}
+      {currentPage !== 'main' && currentPage !== 'donation' && (
+        <FloatingDonationButton onNavigate={handleFullNavigation} isDarkMode={isDarkMode} />
+      )}
       
       {/* Dark Mode Toggle - Fixed position */}
       <button
